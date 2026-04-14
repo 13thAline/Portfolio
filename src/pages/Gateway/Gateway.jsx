@@ -101,47 +101,57 @@ export default function Gateway() {
         </div>
       </section>
 
-      {/* Philosophy cards section */}
-      <section className="relative bg-m-surface-lowest px-8 lg:px-24 py-32 border-t border-m-outline-variant/10">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-7xl mx-auto border border-m-outline-variant/10">
-          {/* AutomatedAggression */}
-          <div className="p-12 bg-m-surface-container ghost-border border-b-0 md:border-b md:border-r-0 group hover:bg-m-primary-container transition-colors duration-500">
-            <span className="font-display text-[10px] text-aiml-glow tracking-[0.3em] font-bold uppercase block mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
-              01 // CORE_LOGIC
+      {/* Philosophy cards section -> Now Territory Navigation */}
+      <section className="relative bg-m-surface-lowest px-8 lg:px-24 py-32 border-t border-m-outline-variant/10 cursor-default">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-7xl mx-auto border border-m-outline-variant/10">
+          
+          {/* Left Box: AIML Desc */}
+          <Link to="/aiml" className="p-12 bg-m-surface-container ghost-border border-b-0 md:border-b md:border-r-0 group hover:bg-m-primary-container transition-colors duration-500 block relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-aiml-glow/0 to-transparent group-hover:from-aiml-glow/5 transition-colors duration-500" />
+            <span className="relative z-10 font-display text-[10px] text-aiml-glow tracking-[0.3em] font-bold uppercase block mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
+              01 // THE_FRONTIER
             </span>
-            <h3 className="font-display text-title-lg text-m-on-surface uppercase tracking-tight mb-4 group-hover:text-aiml-glow transition-colors">
-              AutomatedAggression
+            <h3 className="relative z-10 font-display text-title-lg text-m-on-surface uppercase tracking-tight mb-4 group-hover:text-aiml-glow transition-colors">
+              AI & Machine Learning
             </h3>
-            <p className="font-body text-body-md text-m-on-surface-variant leading-relaxed opacity-80">
-              System-wide enforcement of brutalist paradigms. Elimination of unnecessary curves and padding in favor of terminal efficiency.
+            <p className="relative z-10 font-body text-body-md text-m-on-surface-variant leading-relaxed opacity-80">
+              System-wide enforcement of brutalist paradigms. Deep diving into neural pathways, large language models, and predictive architectures. Terminal-driven efficiency over aesthetic fluff.
+            </p>
+          </Link>
+
+          {/* Middle Box: Navigation Split */}
+          <div className="p-12 bg-m-surface-lowest ghost-border border-b-0 md:border-b md:border-r-0 flex flex-col justify-center items-center text-center relative">
+            <h3 className="font-display text-headline-sm text-m-on-surface uppercase tracking-widest mb-8">
+              <span className="text-aiml-glow animate-pulse">&larr;</span> SELECT <span className="text-fs-cyan animate-pulse">&rarr;</span>
+            </h3>
+            <div className="w-full flex justify-between items-center px-4 mb-8">
+              <span className="font-display text-[10px] text-aiml-glow/50 tracking-[0.3em] font-bold uppercase">
+                TARGET: L
+              </span>
+              <div className="w-8 h-px bg-m-outline-variant/50" />
+              <span className="font-display text-[10px] text-fs-cyan/50 tracking-[0.3em] font-bold uppercase">
+                TARGET: R
+              </span>
+            </div>
+            <p className="font-body text-label-md text-m-outline tracking-widest uppercase leading-relaxed opacity-60">
+              Click left to enter AIML.<br/>Click right to explore Fullstack.
             </p>
           </div>
 
-          {/* SublimeInteractivity */}
-          <div className="p-12 bg-m-surface-lowest ghost-border border-b-0 md:border-b md:border-r-0 group hover:bg-m-surface-high transition-colors duration-500">
-            <span className="font-display text-[10px] text-fs-cyan tracking-[0.3em] font-bold uppercase block mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
-              02 // FRONT_END
+          {/* Right Box: Fullstack Desc */}
+          <Link to="/fullstack" className="p-12 bg-m-surface-container ghost-border group hover:bg-m-surface-highest transition-colors duration-500 block relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-l from-fs-cyan/0 to-transparent group-hover:from-fs-cyan/5 transition-colors duration-500" />
+            <span className="relative z-10 font-display text-[10px] text-fs-cyan tracking-[0.3em] font-bold uppercase block mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
+              02 // THE_ARCHITECTURE
             </span>
-            <h3 className="font-display text-title-lg text-m-on-surface uppercase tracking-tight mb-4 group-hover:text-fs-cyan transition-colors">
-              SublimeInteractivity
+            <h3 className="relative z-10 font-display text-title-lg text-m-on-surface uppercase tracking-tight mb-4 group-hover:text-fs-cyan transition-colors">
+              Fullstack Engineering
             </h3>
-            <p className="font-body text-body-md text-m-on-surface-variant leading-relaxed opacity-80">
-              Where the soul of the machine meets the fluidity of the ocean. Refined, polished, glassmorphic and weightless UI states.
+            <p className="relative z-10 font-body text-body-md text-m-on-surface-variant leading-relaxed opacity-80">
+              Where the soul of the machine meets the fluidity of the ocean. Exploring refined, polished, glassmorphic UI states powered by scalable, high-performance modular backend systems.
             </p>
-          </div>
-
-          {/* FracturedRealities */}
-          <div className="p-12 bg-m-surface-low ghost-border group hover:bg-m-surface-highest transition-colors duration-500">
-            <span className="font-display text-[10px] text-aiml-alert tracking-[0.3em] font-bold uppercase block mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
-              03 // SYNTHESIS
-            </span>
-            <h3 className="font-display text-title-lg text-m-on-surface uppercase tracking-tight mb-4 group-hover:text-aiml-alert transition-colors">
-              FracturedRealities
-            </h3>
-            <p className="font-body text-body-md text-m-on-surface-variant leading-relaxed opacity-80">
-              A collision course between two extremes. The beauty of the glitch meets the logic of the light in a non-linear split.
-            </p>
-          </div>
+          </Link>
+          
         </div>
       </section>
     </motion.div>
