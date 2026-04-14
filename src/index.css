@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TERRITORY WAR DESIGN SYSTEM — Tailwind v4 Theme
+   ============================================================ */
+
+@theme {
+  /* AIML Territory Colors */
+  --color-aiml-void: #050505;
+  --color-aiml-surface: #121414;
+  --color-aiml-glow: #00FFFF;
+  --color-aiml-alert: #FF3B30;
+  --color-aiml-matrix: #39FF14;
+  --color-aiml-glow-dim: rgba(0, 255, 255, 0.15);
+  --color-aiml-matrix-dim: rgba(57, 255, 20, 0.10);
+
+  /* Fullstack Territory Colors */
+  --color-fs-light: #FAFAFA;
+  --color-fs-off: #F0F0F0;
+  --color-fs-cyan: #00DBE9;
+  --color-fs-cyan-fixed: #7DF4FF;
+  --color-fs-glass: rgba(201, 198, 197, 0.4);
+  --color-fs-glass-subtle: rgba(201, 198, 197, 0.15);
+
+  /* Material Surface Hierarchy */
+  --color-m-bg: #121414;
+  --color-m-surface: #121414;
+  --color-m-surface-dim: #121414;
+  --color-m-surface-bright: #38393A;
+  --color-m-surface-lowest: #0C0F0F;
+  --color-m-surface-low: #1A1C1C;
+  --color-m-surface-container: #1E2020;
+  --color-m-surface-high: #282A2B;
+  --color-m-surface-highest: #333535;
+  --color-m-surface-variant: #333535;
+  --color-m-surface-tint: #C9C6C5;
+
+  /* Material Primary System */
+  --color-m-primary: #C9C6C5;
+  --color-m-primary-container: #050505;
+  --color-m-primary-fixed: #E5E2E1;
+  --color-m-on-primary: #313030;
+  --color-m-on-primary-container: #797777;
+
+  /* Material Secondary System (Red Alert) */
+  --color-m-secondary: #FFB4AA;
+  --color-m-secondary-container: #C5020B;
+  --color-m-on-secondary: #690003;
+
+  /* Material Tertiary System (Cyan Logic) */
+  --color-m-tertiary: #00DBE9;
+  --color-m-tertiary-container: #000607;
+  --color-m-tertiary-fixed: #7DF4FF;
+  --color-m-on-tertiary: #00363A;
+
+  /* Material Neutrals */
+  --color-m-on-bg: #E2E2E2;
+  --color-m-on-surface: #E2E2E2;
+  --color-m-on-surface-variant: #C4C7C7;
+  --color-m-outline: #8E9192;
+  --color-m-outline-variant: #444748;
+  --color-m-inverse-surface: #E2E2E2;
+
+  /* Error System */
+  --color-m-error: #FFB4AB;
+  --color-m-error-container: #93000A;
+
+  /* Font families */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+
+  /* Font sizes (editorial scale) */
+  --font-size-display-lg: 3.5rem;
+  --font-size-display-md: 2.8rem;
+  --font-size-display-sm: 2.25rem;
+  --font-size-headline-lg: 2rem;
+  --font-size-headline-md: 1.75rem;
+  --font-size-headline-sm: 1.5rem;
+  --font-size-title-lg: 1.375rem;
+  --font-size-title-md: 1.125rem;
+  --font-size-body-lg: 1rem;
+  --font-size-body-md: 0.875rem;
+  --font-size-body-sm: 0.75rem;
+  --font-size-label-md: 0.75rem;
+  --font-size-label-sm: 0.6875rem;
+
+  /* Enforce 0px radius globally */
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  /* Custom breakpoints */
+  --breakpoint-xs: 375px;
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+
+* {
+  border-radius: 0 !important;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-aiml-void);
+  color: var(--color-m-on-surface);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-aiml-glow);
+  color: var(--color-aiml-void);
+}
+
+/* Ghost border utility */
+.ghost-border {
+  border: 1px solid rgba(68, 71, 72, 0.10);
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+
+/* AIML: Glitch stutter effect */
+@keyframes glitch-stutter {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -2px); }
+  80% { transform: translate(1px, 2px); }
+  100% { transform: translate(0); }
+}
+
+/* AIML: RGB channel split */
+@keyframes rgb-shift {
+  0%, 100% {
+    text-shadow: -2px 0 var(--color-aiml-glow), 2px 0 var(--color-aiml-alert);
+  }
+  25% {
+    text-shadow: 2px 0 var(--color-aiml-glow), -2px 0 var(--color-aiml-alert);
+  }
+  50% {
+    text-shadow: -1px 1px var(--color-aiml-glow), 1px -1px var(--color-aiml-alert);
+  }
+  75% {
+    text-shadow: 1px -1px var(--color-aiml-glow), -1px 1px var(--color-aiml-alert);
+  }
+}
+
+/* AIML: Scanline sweep */
+@keyframes scanline-sweep {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* AIML: Terminal cursor blink */
+@keyframes terminal-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* AIML: Data ticker horizontal scroll */
+@keyframes data-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Fullstack: Float up */
+@keyframes float-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+/* Fullstack: Glass shimmer light leak */
+@keyframes glass-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Fullstack: Fade slide in */
+@keyframes fade-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shared: Subtle pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Pixel bleed flicker */
+@keyframes pixel-flicker {
+  0%, 90%, 100% { opacity: 1; }
+  91% { opacity: 0; }
+  95% { opacity: 0.5; }
+}
