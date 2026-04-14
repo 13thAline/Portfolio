@@ -19,14 +19,11 @@ export default function AimlProjects() {
         />
       </div>
 
-      {/* Project Stack - Strictly asymmetrical */}
+      {/* Project Stack - Strictly left aligned */}
       <div className="flex flex-col gap-12 max-w-4xl mr-auto ml-0">
         {projects.aiml.map((project, i) => (
           <ProjectReveal key={project.id} index={i}>
-            {/* Shift every alternating element slightly to create jaggedness */}
-            <div className={`${i % 2 !== 0 ? 'lg:ml-12 lg:-mr-12' : ''}`}>
-              <TerminalCard project={project} index={i} />
-            </div>
+            <TerminalCard project={project} index={i} />
           </ProjectReveal>
         ))}
       </div>

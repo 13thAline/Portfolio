@@ -21,44 +21,40 @@ export default function Gateway() {
         {/* Left territory content overlay (AIML) */}
         <div className="group absolute top-0 left-0 w-1/2 h-full z-10 pointer-events-none">
           <div className="absolute inset-0 bg-aiml-glow/0 group-hover:bg-aiml-glow/[0.02] transition-colors duration-500 pointer-events-auto" />
-          <div className="flex flex-col justify-center h-full pl-[10%] pr-[15%]">
-            <div className="mb-4">
-              <span className="font-display text-[10px] text-aiml-matrix/80 tracking-[0.4em] font-bold uppercase block transition-all duration-300 group-hover:translate-x-2">
-                TERRITORY_ALPHA // AIML_SYSTEMS
+          <div className="flex flex-col justify-center h-full pl-[5%] lg:pl-[10%] pr-[10%] lg:pr-[15%]">
+            <div className="mb-2 lg:mb-4">
+              <span className="font-display text-[8px] lg:text-[10px] text-aiml-matrix/80 tracking-[0.2em] lg:tracking-[0.4em] font-bold uppercase block transition-all duration-300 group-hover:translate-x-2">
+                TERRITORY_ALPHA
               </span>
             </div>
 
             <GlitchText
-              text="SYSTEM_"
+              text="SYS_"
               as="h1"
-              className="font-display text-[5rem] lg:text-[7rem] xl:text-[9rem] text-m-on-surface uppercase tracking-tighter leading-none mb-1 mix-blend-screen"
+              className="font-display text-4xl sm:text-6xl md:text-[5rem] lg:text-[7rem] xl:text-[9rem] text-m-on-surface uppercase tracking-tighter leading-none mb-1 mix-blend-screen"
               intensity="medium"
             />
             <GlitchText
               text="ERR"
               as="span"
-              className="font-display text-[5rem] lg:text-[7rem] xl:text-[9rem] text-aiml-glow uppercase tracking-tighter leading-none block mb-8"
+              className="font-display text-4xl sm:text-6xl md:text-[5rem] lg:text-[7rem] xl:text-[9rem] text-aiml-glow uppercase tracking-tighter leading-none block mb-4 lg:mb-8"
               intensity="high"
             />
 
-            <div className="space-y-1 mb-12 opacity-80 group-hover:opacity-100 transition-opacity">
-              <p className="font-display text-label-sm text-m-outline tracking-wider">
-                {">"} [LOG_01]: Neural pathway degradation detected.
+            <div className="space-y-1 mb-8 lg:mb-12 opacity-80 group-hover:opacity-100 transition-opacity hidden sm:block">
+              <p className="font-display text-[8px] lg:text-label-sm text-m-outline tracking-wider">
+                {">"} [LOG_01]: Neural path degradation.
               </p>
-              <p className="font-display text-label-sm text-m-outline tracking-wider">
-                {">"} [LOG_02]: Brutalist logic overwriting sensory input.
-              </p>
-              <p className="font-display text-[10px] text-aiml-alert/80 font-bold tracking-widest mt-2 animate-pulse">
-                {">"} [CRITICAL]: The synthesis is fracturing.
+              <p className="font-display text-[8px] lg:text-label-sm text-m-outline tracking-wider">
+                {">"} [LOG_02]: Brutalist logic overwriting.
               </p>
             </div>
 
-            <Link to="/aiml" className="pointer-events-auto inline-flex items-center gap-4 group/link">
-              <span className="font-display text-[12px] text-aiml-glow tracking-[0.2em] font-bold uppercase cursor-pointer hover:text-aiml-matrix transition-colors">
-                [ INIT_TERRITORY ]
+            <Link to="/aiml" className="pointer-events-auto inline-flex items-center gap-2 lg:gap-4 group/link mt-auto sm:mt-0 mb-16 sm:mb-0">
+              <span className="font-display text-[10px] lg:text-[12px] text-aiml-glow tracking-[0.1em] lg:tracking-[0.2em] font-bold uppercase cursor-pointer hover:text-aiml-matrix transition-colors">
+                [ INIT ]
               </span>
-              <span className="w-8 h-[1px] bg-aiml-glow group-hover/link:w-16 transition-all duration-300 group-hover/link:bg-aiml-matrix" />
-              <span className="w-2 h-3 bg-aiml-glow animate-[terminal-blink_1s_infinite]" />
+              <span className="w-4 lg:w-8 h-[1px] bg-aiml-glow group-hover/link:w-8 lg:group-hover/link:w-16 transition-all duration-300 group-hover/link:bg-aiml-matrix" />
             </Link>
           </div>
         </div>
@@ -68,29 +64,27 @@ export default function Gateway() {
           {/* Ethereal hover glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-fs-cyan/0 group-hover:to-fs-cyan/5 pointer-events-auto transition-colors duration-1000" />
           
-          <div className="flex flex-col justify-center items-end text-right h-full pr-[10%] pl-[15%]">
-            <span className="font-display text-[10px] text-neutral-400 tracking-[0.4em] font-bold uppercase mb-6 block transition-all duration-500 group-hover:-translate-x-2">
-              Selected Works & Profile
+          <div className="flex flex-col justify-center items-end text-right h-full pr-[5%] lg:pr-[10%] pl-[10%] lg:pl-[15%]">
+            <span className="font-display text-[8px] lg:text-[10px] text-neutral-400 tracking-[0.2em] lg:tracking-[0.4em] font-bold uppercase mb-4 lg:mb-6 block transition-all duration-500 group-hover:-translate-x-2">
+              Selected Works
             </span>
 
-            <h2 className="font-body text-[5rem] lg:text-[7rem] xl:text-[9rem] text-neutral-900 tracking-tighter leading-[0.8] mb-2 font-light">
+            <h2 className="font-body text-4xl sm:text-5xl md:text-[5rem] lg:text-[7rem] xl:text-[9rem] text-neutral-900 tracking-tighter leading-[0.8] mb-2 font-light">
               Sailen
             </h2>
-            <h2 className="font-body text-[5rem] lg:text-[7rem] xl:text-[9rem] text-neutral-900 tracking-tighter leading-[0.8] mb-10 font-semibold drop-shadow-[0_20px_40px_rgba(125,244,255,0.15)]">
+            <h2 className="font-body text-4xl sm:text-5xl md:text-[5rem] lg:text-[7rem] xl:text-[9rem] text-neutral-900 tracking-tighter leading-[0.8] mb-6 lg:mb-10 font-semibold drop-shadow-[0_20px_40px_rgba(125,244,255,0.15)]">
               Sahoo<span className="text-fs-cyan">.</span>
             </h2>
 
-            <p className="font-body text-body-lg text-neutral-500 max-w-sm leading-relaxed mb-12 font-light">
+            <p className="font-body text-[10px] lg:text-body-lg text-neutral-500 max-w-sm leading-relaxed mb-8 lg:mb-12 font-light hidden sm:block">
               Full-stack developer architecting high-performance web applications.
-              Building the bridge between heavy backend logic and seamless user experience.
             </p>
 
-            <Link to="/fullstack" className="pointer-events-auto group/link inline-flex items-center gap-4 hover:-translate-x-2 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
-              <span className="w-12 h-[1px] bg-fs-cyan/40 group-hover/link:w-24 group-hover/link:bg-fs-cyan transition-all duration-500" />
-              <span className="font-body text-headline-sm font-light text-fs-cyan">
-                Explore Stack
+            <Link to="/fullstack" className="pointer-events-auto group/link inline-flex items-center gap-2 lg:gap-4 hover:-translate-x-2 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] mt-auto sm:mt-0 mb-16 sm:mb-0">
+              <span className="w-6 lg:w-12 h-[1px] bg-fs-cyan/40 group-hover/link:w-12 lg:group-hover/link:w-24 group-hover/link:bg-fs-cyan transition-all duration-500" />
+              <span className="font-body text-[10px] lg:text-headline-sm font-light text-fs-cyan">
+                Stack
               </span>
-              <span className="material-symbols-outlined text-[20px] text-fs-cyan/60 group-hover/link:text-fs-cyan group-hover/link:translate-x-2 transition-all duration-300">arrow_forward</span>
             </Link>
           </div>
         </div>

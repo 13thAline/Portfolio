@@ -15,7 +15,7 @@ export default function AimlHome() {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -30 }}
       transition={{ duration: 0.4 }}
-      className="min-h-screen bg-aiml-void pl-8 lg:pl-16 pb-32"
+      className="min-h-screen bg-aiml-void pl-0 lg:pl-16 pb-24 lg:pb-32 overflow-hidden"
     >
       <AimlHero />
 

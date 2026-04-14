@@ -1,93 +1,56 @@
 import GlitchText from "../../components/Effects/GlitchText";
 import DataTicker from "../../components/Effects/DataTicker";
-import ScanlineOverlay from "../../components/Effects/ScanlineOverlay";
 import Button from "../../components/UI/Button";
 import { profile } from "../../data/profile";
-import { useNavigate } from "react-router-dom";
 
 export default function AimlHero() {
-  const navigate = useNavigate();
-
   return (
-    <section className="relative min-h-screen flex flex-col justify-center bg-aiml-void overflow-hidden">
-      <ScanlineOverlay opacity={0.02} />
+    <section className="relative min-h-[90vh] flex flex-col justify-center py-20 pr-8 lg:pr-16">
+      <div className="absolute top-1/4 right-[10%] w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-aiml-glow/5 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
 
-      {/* Background grid */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(0,255,255,0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,255,255,0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: "48px 48px",
-        }}
-      />
+      <div className="relative z-10 max-w-4xl px-4 lg:px-0">
+        <span className="font-display text-[8px] lg:text-[10px] text-aiml-alert tracking-[0.3em] font-bold uppercase mb-6 block border-l-2 border-aiml-alert pl-4">
+          {profile.aiml.subtitle}
+        </span>
 
-      <div className="relative z-10 px-12 py-24 max-w-5xl">
-        {/* System status line */}
-        <div className="flex items-center gap-3 mb-8">
-          <span className="w-2 h-2 bg-aiml-matrix animate-pulse" />
-          <span className="font-display text-label-sm text-aiml-matrix/60 tracking-[0.3em] uppercase">
-            SYSTEM_STATUS: OPERATIONAL
-          </span>
-          <span className="h-[1px] flex-1 bg-gradient-to-r from-aiml-matrix/20 to-transparent" />
-        </div>
+        <h1 className="font-display text-5xl sm:text-7xl md:text-[5rem] lg:text-[7rem] text-m-on-surface tracking-tighter leading-[0.9] mb-4 uppercase mix-blend-screen">
+          <GlitchText text="SYSTEM_" intensity="high" as="span" />
+          <br />
+          <GlitchText text="ARCHITECT" intensity="medium" as="span" className="text-m-outline-variant" />
+        </h1>
 
-        {/* Main title */}
-        <GlitchText
-          text={profile.aiml.title}
-          as="h1"
-          className="font-display text-display-lg text-m-on-surface uppercase tracking-tighter leading-none mb-2"
-          intensity="medium"
-        />
+        <p className="font-display text-label-sm lg:text-label-md text-m-outline tracking-wider max-w-xl leading-relaxed mb-6 lg:mb-12 border-l border-m-outline-variant/30 pl-6">
+          {">"} [INIT] Deploying structural framework... <br />
+          {">"} [WARN] Optimization prioritized over aesthetics. <br />
+          {">"} [LOAD] Establishing neural links...
+        </p>
 
-        <div className="flex items-center gap-4 mb-8">
-          <span className="font-display text-headline-sm text-aiml-glow/40 tracking-wider uppercase">
-            {profile.aiml.subtitle}
-          </span>
-        </div>
-
-        {/* Bio as terminal output */}
-        <div className="bg-m-surface-lowest border border-m-outline-variant/10 p-6 max-w-2xl mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="font-display text-label-sm text-m-outline tracking-wider">
-              $ cat bio.md
-            </span>
-            <span className="text-aiml-glow animate-[terminal-blink_1s_steps(1)_infinite]">▌</span>
-          </div>
-          <p className="font-body text-body-md text-m-on-surface-variant leading-relaxed">
-            {profile.aiml.bio}
-          </p>
-        </div>
-
-        {/* CTAs */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:gap-6">
           <Button
             territory="aiml"
-            variant="primary"
             onClick={() => {
               const el = document.getElementById("aiml-projects");
               if (el) el.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            <span className="material-symbols-outlined text-[18px]">deployed_code</span>
-            VIEW_PROJECTS
+            [ EXECUTE_PROJECTS ]
           </Button>
+          
           <Button
             territory="aiml"
-            variant="secondary"
-            onClick={() => navigate("/aiml/profile")}
+            variant="ghost"
+            onClick={() => {
+              const el = document.getElementById("aiml-profile");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
           >
-            <span className="material-symbols-outlined text-[18px]">terminal</span>
-            LOAD_PROFILE
+            READ_BIOGRAPHY
           </Button>
         </div>
       </div>
 
-      {/* Data ticker */}
-      <div className="absolute bottom-0 left-0 w-full">
-        <DataTicker speed={35} className="py-2 border-t border-m-outline-variant/10 bg-m-primary-container/40" />
+      <div className="absolute bottom-0 left-0 w-full z-20">
+        <DataTicker speed={60} className="py-2 border-y border-m-outline-variant/20 bg-aiml-void/80 backdrop-blur-sm" />
       </div>
     </section>
   );
