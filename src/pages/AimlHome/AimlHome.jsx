@@ -20,7 +20,7 @@ export default function AimlHome() {
       <AimlHero />
 
       {/* Unified Profile & Technical Section */}
-      <section className="py-24 pr-8 lg:pr-24 max-w-7xl border-t border-m-outline-variant/10">
+      <section id="aiml-profile" className="py-24 pr-8 lg:pr-24 max-w-7xl border-t border-m-outline-variant/10">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           
           {/* Left Column: Profile Card */}

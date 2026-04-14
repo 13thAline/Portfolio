@@ -46,7 +46,7 @@ export default function ContactForm({ territory }) {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           {/* USER GENERATE ACCESS KEY */}
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+          <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || ""} />
           
           <div className="flex flex-col gap-2">
             <label className="font-display text-[10px] text-m-outline-variant uppercase tracking-widest">
@@ -114,7 +114,7 @@ export default function ContactForm({ territory }) {
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || ""} />
 
         <div className="relative group">
           <input 

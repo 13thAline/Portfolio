@@ -7,11 +7,11 @@ const NAV_ITEMS = {
   ],
   aiml: [
     { to: "/aiml", icon: "swords", label: "Frontier" },
-    { to: "/aiml/profile", icon: "terminal", label: "Profile" },
+    { scrollTo: "aiml-profile", icon: "terminal", label: "Profile" },
   ],
   fullstack: [
     { to: "/fullstack", icon: "auto_awesome", label: "Projects" },
-    { to: "/fullstack/profile", icon: "person", label: "About" },
+    { scrollTo: "fs-profile", icon: "person", label: "About" },
   ],
 };
 
@@ -22,6 +22,11 @@ export default function SlimNav() {
     ...(persona !== "neutral" ? [{ to: "/", icon: "blur_on", label: "Gateway" }] : []),
     ...(NAV_ITEMS[persona] || NAV_ITEMS.neutral),
   ];
+
+  const handleScroll = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <nav className="fixed left-0 top-0 h-full w-16 z-50 flex flex-col items-center py-8 gap-6 bg-m-primary-container/80 backdrop-blur-sm border-r border-m-outline-variant/10">
@@ -43,21 +48,28 @@ export default function SlimNav() {
       {/* Nav items */}
       <div className="flex flex-col gap-2 flex-1">
         {items.map((item) => {
-          const isActive = location.pathname === item.to;
+          const isActive = item.to ? location.pathname === item.to : false;
+          
+          const sharedClasses = `group relative w-10 h-10 flex items-center justify-center transition-all duration-200 cursor-pointer ${
+            isActive
+              ? persona === "aiml"
+                ? "text-aiml-glow bg-aiml-glow/10"
+                : persona === "fullstack"
+                ? "text-fs-cyan bg-fs-cyan/10"
+                : "text-m-on-surface bg-m-surface-high"
+              : "text-m-outline hover:text-m-on-surface"
+          }`;
+
+          const ItemWrapper = item.to ? NavLink : "button";
+          const props = item.to 
+            ? { to: item.to, title: item.label } 
+            : { onClick: () => handleScroll(item.scrollTo), title: item.label };
+
           return (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={`group relative w-10 h-10 flex items-center justify-center transition-all duration-200 ${
-                isActive
-                  ? persona === "aiml"
-                    ? "text-aiml-glow bg-aiml-glow/10"
-                    : persona === "fullstack"
-                    ? "text-fs-cyan bg-fs-cyan/10"
-                    : "text-m-on-surface bg-m-surface-high"
-                  : "text-m-outline hover:text-m-on-surface"
-              }`}
-              title={item.label}
+            <ItemWrapper
+              key={item.to || item.scrollTo}
+              className={sharedClasses}
+              {...props}
             >
               <span className="material-symbols-outlined text-[20px]">
                 {item.icon}
@@ -80,7 +92,7 @@ export default function SlimNav() {
                   }`}
                 />
               )}
-            </NavLink>
+            </ItemWrapper>
           );
         })}
       </div>

@@ -59,7 +59,7 @@ export const profile = {
   fullstack: {
     title: "Sailen Sahoo",
     subtitle: "Full-Stack Developer",
-    image: "/MyImage.jpg",
+    image: "/FullstackImage.jpg",
     bio: "Full-stack developer architecting high-performance web applications. I specialize in the MERN stack to build the delivery mechanisms for complex data. From developing fluid, optimized user interfaces to structuring robust database schemas, I build the bridge between heavy backend logic and seamless user experience.",
     skills: {
       "Frontend Architecture": [
